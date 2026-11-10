@@ -1,4 +1,5 @@
 # Portfólio — Lucas Santos Nascimento
+<img width="1842" height="937" alt="Captura de tela 2026-11-09 234704" src="https://github.com/user-attachments/assets/afcc311c-9214-4432-b538-27de12723a46" />
 
 Landing page profissional em Next.js e React, com tema dark em tons de roxo, animação de habilidades em órbita, conteúdo baseado no currículo, experiência, formação, contatos e carrossel de projetos.
 
