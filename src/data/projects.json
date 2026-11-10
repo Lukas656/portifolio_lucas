@@ -1,0 +1,42 @@
+[
+  {
+    "id": "sky-mvno",
+    "name": "SKY Móvel — MVNO",
+    "description": "Página da oferta de telefonia móvel da SKY, disponível no portfólio do currículo.",
+    "url": "https://www.movel.sky.com.br/mvno",
+    "image": "https://i.ibb.co/CsBDQVtX/Captura-de-tela-2026-11-09-232428.png",
+    "imageAlt": "Capa ilustrada para o projeto SKY Móvel — MVNO",
+    "category": "Projeto em produção",
+    "stack": ["Front-end", "Responsivo", "SKY"]
+  },
+  {
+    "id": "sky-pre",
+    "name": "SKY Móvel — Pré-Pago",
+    "description": "Página da oferta de telefonia móvel da SKY, disponível no portfólio do currículo.",
+    "url": "https://www.sky.com.br/sky-pre-pago/recarregue",
+    "image": "https://i.ibb.co/TDzrKMXw/Captura-de-tela-2026-11-09-144523.png",
+    "imageAlt": "Capa ilustrada para o projeto SKY Móvel — MVNO",
+    "category": "Projeto em produção",
+    "stack": ["Front-end", "Responsivo", "SKY"]
+  },
+  {
+    "id": "church",
+    "name": "Igreja Resgate & Salvação",
+    "description": "Página Para apresnetação da igreja onde podem ver as pregações do Youtube e Crnograma de Cultos ",
+    "url": "https://resgate-iota.vercel.app/",
+    "image": "https://i.ibb.co/yFN2Z5HL/Captura-de-tela-2026-11-09-233143.png",
+    "imageAlt": "Capa ilustrada para o projeto SKY Móvel — MVNO",
+    "category": "Projeto em produção",
+    "stack": ["GitHub", "Front-end", "Responsivo", "Web site"]
+  },
+  {
+    "id": "github-portfolio",
+    "name": "Portfólio de código no GitHub",
+    "description": "Perfil de projetos e repositórios de Lucas Santos Nascimento.",
+    "url": "https://github.com/Lukas656",
+    "image": "/projects/github-portfolio.svg",
+    "imageAlt": "Capa ilustrada para o portfólio de código no GitHub",
+    "category": "Repositórios",
+    "stack": ["GitHub", "JavaScript", "Web"]
+  }
+]
