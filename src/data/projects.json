@@ -20,6 +20,16 @@
     "stack": ["Front-end", "Responsivo", "SKY"]
   },
   {
+    "id": "sky-blog",
+    "name": "SKY Blog",
+    "description": "Criação de posts e integração da API Headlles da Liferay 7.4 com React + Next.",
+    "url": "https://www.sky.com.br/blog/home",
+    "image": "https://i.ibb.co/qYGDJTxL/Captura-de-tela-2026-11-20-160057.png",
+    "imageAlt": "Capa ilustrada para o projeto SKY Blog — Blog",
+    "category": "Projeto em produção",
+    "stack": ["Front-end", "Responsivo", "SKY", "liferay"]
+  },
+  {
     "id": "church",
     "name": "Igreja Resgate & Salvação",
     "description": "Página Para apresnetação da igreja onde podem ver as pregações do Youtube e Crnograma de Cultos ",

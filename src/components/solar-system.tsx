@@ -1,17 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { Sparkles } from "lucide-react";
 import { orbitSkills } from "@/data/profile";
 
 const orbits = [
-  { width: "42%", height: "37%", duration: "24s", skill: orbitSkills[0] },
-  { width: "54%", height: "46%", duration: "30s", skill: orbitSkills[1] },
-  { width: "66%", height: "55%", duration: "36s", skill: orbitSkills[2] },
-  { width: "78%", height: "64%", duration: "42s", skill: orbitSkills[3] },
-  { width: "90%", height: "73%", duration: "48s", skill: orbitSkills[4] },
-  { width: "102%", height: "82%", duration: "54s", skill: orbitSkills[5] },
-  { width: "114%", height: "91%", duration: "60s", skill: orbitSkills[6] },
+  { width: "42%", height: "37%", duration: "24s", mobileDuration: "14s", skill: orbitSkills[0] },
+  { width: "54%", height: "46%", duration: "30s", mobileDuration: "18s", skill: orbitSkills[1] },
+  { width: "66%", height: "55%", duration: "36s", mobileDuration: "22s", skill: orbitSkills[2] },
+  { width: "78%", height: "64%", duration: "42s", mobileDuration: "26s", skill: orbitSkills[3] },
+  { width: "90%", height: "73%", duration: "48s", mobileDuration: "30s", skill: orbitSkills[4] },
+  { width: "102%", height: "82%", duration: "54s", mobileDuration: "34s", skill: orbitSkills[5] },
+  { width: "114%", height: "91%", duration: "60s", mobileDuration: "38s", skill: orbitSkills[6] },
 ];
 
 const skillDescriptions: Record<string, string> = {
@@ -49,6 +50,14 @@ export function SolarSystem() {
     event.currentTarget.style.setProperty("--solar-glow-y", "50%");
   }
 
+  function handleSkillPointerEnter(event: ReactPointerEvent<HTMLButtonElement>, skill: string) {
+    if (event.pointerType !== "touch") setHighlightedSkill(skill);
+  }
+
+  function handleSkillPointerLeave(event: ReactPointerEvent<HTMLButtonElement>) {
+    if (event.pointerType !== "touch") setHighlightedSkill(null);
+  }
+
   return (
     <div
       className={`solar${activeSkill ? " solar--engaged" : ""}${selectedSkill ? " solar--selected" : ""}`}
@@ -62,7 +71,13 @@ export function SolarSystem() {
         <div
           className={`orbit-path orbit-path--${index + 1}${activeSkill === orbit.skill ? " orbit-path--active" : ""}`}
           key={orbit.skill}
-          style={{ "--orbit-width": orbit.width, "--orbit-height": orbit.height, "--orbit-duration": orbit.duration, "--orbit-delay": `${(-(index / orbits.length) * Number.parseFloat(orbit.duration)).toFixed(2)}s` } as CSSProperties}
+          style={{
+            "--orbit-width": orbit.width,
+            "--orbit-height": orbit.height,
+            "--orbit-duration": orbit.duration,
+            "--mobile-orbit-duration": orbit.mobileDuration,
+            "--orbit-delay": `${(-(index / orbits.length) * Number.parseFloat(orbit.duration)).toFixed(2)}s`,
+          } as CSSProperties}
         >
           <span className="orbit-path__planet">
             <button
@@ -72,8 +87,8 @@ export function SolarSystem() {
               aria-pressed={selectedSkill === orbit.skill}
               title={skillDescriptions[orbit.skill]}
               onClick={() => setSelectedSkill((current) => current === orbit.skill ? null : orbit.skill)}
-              onPointerEnter={() => setHighlightedSkill(orbit.skill)}
-              onPointerLeave={() => setHighlightedSkill(null)}
+              onPointerEnter={(event) => handleSkillPointerEnter(event, orbit.skill)}
+              onPointerLeave={handleSkillPointerLeave}
               onFocus={() => setHighlightedSkill(orbit.skill)}
               onBlur={() => setHighlightedSkill(null)}
             >
@@ -82,13 +97,22 @@ export function SolarSystem() {
           </span>
         </div>
       ))}
-      <div className="solar__sun" aria-hidden="true">
-        <span className="solar__sun-core">LS</span>
-        <span className="solar__sun-caption">{activeSkill ?? "FRONT-END"}</span>
+      <div className="solar__sun" role="img" aria-label="Retrato de Lucas Santos Nascimento">
+       <Image
+          className="solar__portrait !rounded-full object-cover"
+          src="https://i.ibb.co/Q3vH6R34/perfil.jpg"
+          alt=""
+          fill
+          sizes="(max-width: 520px) 82px, 112px"
+          priority
+          unoptimized
+        />
+        <span className="solar__sun-shade" aria-hidden="true"/>
+        <span className="solar__sun-caption" aria-hidden="true">{activeSkill ?? "FRONT-END"}</span>
       </div>
       <span className="solar__hint" aria-hidden="true">
         <Sparkles size={13} />
-        {selectedSkill ? "CLIQUE DE NOVO PARA RETOMAR" : activeSkill ? "CLIQUE PARA FIXAR" : "MOUSE · CLIQUE · TOQUE"}
+        {selectedSkill ? "TOQUE/CLIQUE NOVAMENTE PARA LIBERAR" : activeSkill ? "TOQUE/CLIQUE PARA FIXAR" : "MOUSE · CLIQUE · TOQUE"}
       </span>
       <span className="solar__sr-only" aria-live="polite" aria-atomic="true">
         {selectedSkill ? `Tecnologia selecionada: ${selectedSkill}. ${skillDescriptions[selectedSkill]}` : "Nenhuma tecnologia selecionada."}
