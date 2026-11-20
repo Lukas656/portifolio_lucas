@@ -2,6 +2,8 @@
 
 Landing page profissional em Next.js e React, com tema dark em tons de roxo, animação de habilidades em órbita, conteúdo baseado no currículo, experiência, formação, contatos e carrossel de projetos.
 
+<img width="1840" height="947" alt="Captura de tela 2026-11-20 173508" src="https://github.com/user-attachments/assets/57861eb8-b13c-4a77-8061-978c482a6cde" />
+
 ## Requisitos e execução local
 
 - Node.js 20.9 ou superior (o projeto foi iniciado com Node 22).
